@@ -10,6 +10,12 @@ android/.gradle/
 android/.kotlin/
 android/**/build/
 android/local.properties
+android/keystore.properties
+android/**/*.jks
+android/**/*.keystore
+android/**/*.p12
+android/**/*.apk
+android/**/*.aab
 
 # Xcode / Swift
 mac/**/DerivedData/
@@ -20,3 +26,5 @@ mac/**/*.build/
 mac/**/.build/
 mac/dist/
 mac/**/.swiftpm/
+mac/**/*.dmg
+mac/**/*.zip

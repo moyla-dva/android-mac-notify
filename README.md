@@ -2,6 +2,8 @@
 
 `android-mac-notify` 是一个面向 `Android + Mac` 的本地协同项目。
 
+License: MIT
+
 第一阶段已经完成的主链路：
 
 - Android 重要通知到 Mac
@@ -60,6 +62,15 @@ android-mac-notify/
 - [/Users/vainve/android-mac-notify/docs/MVP-SPEC.md](/Users/vainve/android-mac-notify/docs/MVP-SPEC.md)
 - [/Users/vainve/android-mac-notify/docs/ARCHITECTURE.md](/Users/vainve/android-mac-notify/docs/ARCHITECTURE.md)
 - [/Users/vainve/android-mac-notify/docs/API-SPEC.md](/Users/vainve/android-mac-notify/docs/API-SPEC.md)
+- [/Users/vainve/android-mac-notify/docs/RELEASE.md](/Users/vainve/android-mac-notify/docs/RELEASE.md)
+
+## 发布安装包
+
+公开给别人安装时不要上传 debug 包。
+
+- Android：不要上传 `app-debug.apk`；应使用 release 包并用自己的 release keystore 签名
+- Mac：上传打包后的 `.app` 压缩包；当前适合 early test，后续应补 Developer ID 签名和 notarization
+- 构建和签名说明见 [Release Guide](/Users/vainve/android-mac-notify/docs/RELEASE.md)
 
 ## 后续方向
 
