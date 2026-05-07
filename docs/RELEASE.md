@@ -17,7 +17,7 @@
 - release keystore、密码、`keystore.properties` 不提交到仓库
 - 上传前在真实 Android 设备上安装验证通知访问、文件投递、暂停 / 恢复接力
 
-当前仓库的 release build type 已存在，但没有内置签名配置。没有签名材料时，Gradle 只能生成未签名 release APK，不能直接发给用户安装。
+当前仓库支持从本地 `android/keystore.properties` 读取 release 签名配置。这个文件和 keystore 不提交到仓库。
 
 推荐本地流程：
 
@@ -27,7 +27,7 @@ cd /Users/vainve/android-mac-notify/android
 ./gradlew :app:assembleRelease
 ```
 
-如果需要公开给别人直接安装，应先补本地签名配置或 CI 签名流程，再上传 signed release APK。
+如果存在本地签名配置，输出的 release APK 可直接安装；如果没有签名配置，release APK 不能作为公开安装包使用。
 
 ## Mac
 

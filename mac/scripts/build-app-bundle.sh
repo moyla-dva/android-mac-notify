@@ -8,6 +8,7 @@ APP_TEMPLATE_DIR="$MAC_DIR/AppBundle"
 DIST_DIR="$MAC_DIR/dist"
 APP_NAME="Android Mac Notify"
 EXECUTABLE_NAME="AndroidMacNotifyMac"
+BUILD_CONFIGURATION="${BUILD_CONFIGURATION:-release}"
 APP_BUNDLE="$DIST_DIR/$APP_NAME.app"
 CONTENTS_DIR="$APP_BUNDLE/Contents"
 MACOS_DIR="$CONTENTS_DIR/MacOS"
@@ -28,8 +29,8 @@ mkdir -p "$MACOS_DIR" "$RESOURCES_DIR"
 (
   cd "$PACKAGE_DIR"
   export DEVELOPER_DIR
-  swift build -c debug >/dev/null
-  BIN_DIR="$(swift build -c debug --show-bin-path)"
+  swift build -c "$BUILD_CONFIGURATION" >/dev/null
+  BIN_DIR="$(swift build -c "$BUILD_CONFIGURATION" --show-bin-path)"
   cp "$BIN_DIR/$EXECUTABLE_NAME" "$MACOS_DIR/$EXECUTABLE_NAME"
 )
 
