@@ -1,53 +1,5 @@
 import SwiftUI
 
-struct SharedFileDeliverySection: View {
-    @ObservedObject var appState: AppState
-    var displayLimit: Int = 6
-
-    var body: some View {
-        let groups = appState.recentSharedFileDeliveryGroups
-        DashboardSection(
-            title: "文件投递",
-            systemImage: "tray.and.arrow.down",
-            accessoryText: sharedFileDeliveryAccessoryText(groups: groups)
-        ) {
-            if groups.isEmpty {
-                EmptySectionRow(
-                    title: "还没有收到文件",
-                    systemImage: "tray"
-                )
-            } else {
-                VStack(alignment: .leading, spacing: 10) {
-                    let visibleGroups = Array(groups.prefix(displayLimit))
-                    if let latestGroup = visibleGroups.first {
-                        SharedFileDeliveryGroupCard(group: latestGroup, appState: appState)
-                    }
-
-                    if visibleGroups.count > 1 {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("之前收到")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.secondary)
-                                .padding(.top, 2)
-
-                            ForEach(visibleGroups.dropFirst()) { group in
-                                SharedFileDeliveryHistoryRow(group: group, appState: appState)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private func sharedFileDeliveryAccessoryText(groups: [SharedFileDeliveryGroup]) -> String {
-        guard !groups.isEmpty else {
-            return "0"
-        }
-        return groups.count == 1 ? "1 批" : "\(groups.count) 批"
-    }
-}
-
 private let maxExpandedSharedFileGroupItems = 5
 
 struct SharedFileDeliveryHistoryRow: View {

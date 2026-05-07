@@ -1,6 +1,5 @@
 package com.vainve.androidmacnotify.ui.transfer
 
-import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import com.vainve.androidmacnotify.network.SharedFileRelayPayload
@@ -22,6 +21,8 @@ private const val MIN_SHARED_FILE_UPLOAD_CACHE_HEADROOM_BYTES = 8L * 1024L * 102
 class SharedFileUploadPayloadBuilder(
     private val context: Context,
 ) {
+    private val metadataReader = SharedFileMetadataReader(context)
+
     fun buildPayload(
         uri: Uri,
         deviceId: String,
@@ -32,11 +33,11 @@ class SharedFileUploadPayloadBuilder(
         cancelToken: SharedFileTransferCancelToken,
         onProgress: (sentBytes: Long, totalBytes: Long) -> Unit = { _, _ -> },
     ): SharedFileRelayPayload {
-        val resolver = context.contentResolver
-        val fileName = resolver.displayName(uri).ifBlank { "shared-file" }
-        val declaredSize = resolver.fileSize(uri)
+        val metadata = metadataReader.metadataFor(uri)
+        val fileName = metadata.fileName
+        val declaredSize = metadata.sizeBytes
         cancelToken.throwIfCancelled()
-        val mimeType = resolver.getType(uri)
+        val mimeType = metadata.mimeType
         val uploadBody = if (shouldCacheBeforeUpload(declaredSize, mimeType, fileName)) {
             cacheUnknownLengthFile(uri, mimeType, cancelToken)
         } else {
@@ -282,26 +283,6 @@ private val textLikeExtensions = listOf(
     ".java",
     ".py",
 )
-
-private fun ContentResolver.displayName(uri: Uri): String {
-    return query(uri, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)
-        ?.use { cursor ->
-            if (!cursor.moveToFirst()) return@use null
-            val columnIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME)
-            if (columnIndex >= 0) cursor.getString(columnIndex) else null
-        }
-        .orEmpty()
-}
-
-private fun ContentResolver.fileSize(uri: Uri): Long? {
-    return query(uri, arrayOf(android.provider.OpenableColumns.SIZE), null, null, null)
-        ?.use { cursor ->
-            if (!cursor.moveToFirst()) return@use null
-            val columnIndex = cursor.getColumnIndex(android.provider.OpenableColumns.SIZE)
-            if (columnIndex < 0 || cursor.isNull(columnIndex)) return@use null
-            cursor.getLong(columnIndex)
-        }
-}
 
 private fun String?.safeMediaType() = this
     ?.takeIf { it.isNotBlank() }

@@ -8,7 +8,7 @@
 
 - 让 Android 和 Mac 先稳定打通通知主链
 - 支持普通 Wi-Fi 与 Android 热点环境
-- 支持手动配对与二维码导入
+- 支持自动发现配对，手动输入和二维码导入作为兜底
 - 区分网络失败、认证失败、设备未注册等状态
 - 为后续主动分享和多设备扩展保留空间
 
@@ -131,7 +131,7 @@ Authorization: Bearer <deviceToken>
 - 手动输入
 - 扫码导入
 
-拿到一次性 `pairingToken` 后，Android 也可以直接向 Mac 发起注册。
+自动发现和 Mac 端审批是当前主路径；拿到一次性 `pairingToken` 后，Android 也可以通过兜底路径向 Mac 发起注册。
 
 ## 4.2 二维码载荷
 
@@ -143,7 +143,7 @@ MVP 建议二维码内容为 JSON：
   "host": "192.168.43.120",
   "port": 38471,
   "pairingToken": "pair_abc123xyz",
-  "displayName": "Vainve MacBook Pro"
+  "displayName": "Example MacBook Pro"
 }
 ```
 
@@ -171,7 +171,7 @@ MVP 建议二维码内容为 JSON：
   "protocolVersion": 1,
   "serviceType": "_amnotify._tcp",
   "macDeviceId": "mac-8df34b91",
-  "macDisplayName": "Vainve MacBook Pro",
+  "macDisplayName": "Example MacBook Pro",
   "port": 38471,
   "serverTime": 1777824001000
 }
@@ -219,7 +219,7 @@ _amnotify._tcp.local
   "requestId": "pair_req_xxx",
   "status": "pending",
   "macDeviceId": "mac-8df34b91",
-  "macDisplayName": "Vainve MacBook Pro",
+  "macDisplayName": "Example MacBook Pro",
   "expiresAt": 1777824301000,
   "serverTime": 1777824001000,
   "pollAfterMillis": 2000
@@ -242,13 +242,13 @@ _amnotify._tcp.local
   "requestId": "pair_req_xxx",
   "status": "approved",
   "macDeviceId": "mac-8df34b91",
-  "macDisplayName": "Vainve MacBook Pro",
+  "macDisplayName": "Example MacBook Pro",
   "serverTime": 1777824003000,
   "message": "Pairing request was approved.",
   "registration": {
     "deviceToken": "dev_tok_xxx",
     "macDeviceId": "mac-8df34b91",
-    "macDisplayName": "Vainve MacBook Pro",
+    "macDisplayName": "Example MacBook Pro",
     "serverTime": 1777824003000
   }
 }
@@ -294,7 +294,7 @@ _amnotify._tcp.local
 {
   "deviceToken": "dev_tok_xxx",
   "macDeviceId": "mac-8df34b91",
-  "macDisplayName": "Vainve MacBook Pro",
+  "macDisplayName": "Example MacBook Pro",
   "serverTime": 1777824001000
 }
 ```
@@ -522,7 +522,7 @@ GET /api/v1/session/status?deviceId=android-4f3c2a1b
   "sessionState": "connected",
   "lastSeenAt": 1777824010100,
   "macDeviceId": "mac-8df34b91",
-  "macDisplayName": "Vainve MacBook Pro"
+  "macDisplayName": "Example MacBook Pro"
 }
 ```
 
@@ -625,7 +625,7 @@ X-AMN-Batch-Total: 6
   "accepted": true,
   "shareId": "share_file_001",
   "fileName": "receipt.pdf",
-  "savedPath": "/Users/vainve/Downloads/Android Mac Notify/receipt.pdf",
+  "savedPath": "/Users/example/Downloads/Android Mac Notify/receipt.pdf",
   "size": 24576
 }
 ```

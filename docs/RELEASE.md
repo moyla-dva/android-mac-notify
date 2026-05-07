@@ -20,6 +20,7 @@ For public releases:
 - Sign with a release keystore
 - Never commit the release keystore, passwords, or `keystore.properties`
 - Install the APK on a real Android device before uploading
+- Android app data is not backed up by the system. Pairing and device tokens must be recreated after reinstalling or moving to another phone.
 
 The project reads Android release signing config from local `android/keystore.properties` when the file exists. This file and the keystore are intentionally ignored by git.
 
@@ -32,6 +33,12 @@ cd android
 ```
 
 If signing config exists, the generated release APK can be installed directly. Without signing config, do not use the release APK as a public download.
+
+Network note:
+
+- Current builds use local-network HTTP between the Android phone and Mac.
+- This is intended for same Wi-Fi or Android hotspot early testing.
+- A future stable release should add an encrypted local channel before positioning the app for broader untrusted-network use.
 
 ## Mac
 
@@ -56,7 +63,7 @@ Package DMG:
 Output:
 
 ```text
-mac/dist/Android-Mac-Notify-macOS-arm64-v0.1.0.dmg
+mac/dist/Android-Mac-Notify-macOS-arm64-v0.1.1.dmg
 ```
 
 For public releases:

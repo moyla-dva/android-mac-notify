@@ -60,7 +60,6 @@ data class PairingUiState(
     val isSendingSharedFile: Boolean = false,
     val recentRelayActivities: List<RelayActivityRecord> = emptyList(),
     val recentSharedFileDeliveries: List<SharedFileDeliveryRecord> = emptyList(),
-    val relayHint: String = "选择 Mac 后，在 Mac 上允许配对，再到系统通知访问里启用本应用。",
 )
 
 class PairingViewModel(application: Application) : AndroidViewModel(application) {
@@ -145,10 +144,6 @@ class PairingViewModel(application: Application) : AndroidViewModel(application)
 
     fun updatePort(value: String) {
         _uiState.update { it.copy(port = value) }
-    }
-
-    fun updatePairingToken(value: String) {
-        _uiState.update { it.copy(pairingToken = value) }
     }
 
     fun updateDeviceDisplayName(value: String) {

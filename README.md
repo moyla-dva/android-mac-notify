@@ -4,7 +4,7 @@ Android Mac Notify lets an Android phone hand off useful events to a Mac on the 
 
 It is built for a simple desk setup: keep the phone nearby, work on the Mac, and handle Android verification codes, links, and file delivery without picking up the phone every time.
 
-[Download v0.1.0 early test build](https://github.com/moyla-dva/android-mac-notify/releases/tag/v0.1.0) · [Release notes](docs/RELEASE.md) · License: MIT
+[Download v0.1.1 early test build](https://github.com/moyla-dva/android-mac-notify/releases/tag/v0.1.1) · [Release notes](docs/RELEASE.md) · License: MIT
 
 ## What It Does
 
@@ -20,10 +20,10 @@ The app is intentionally not a full phone mirror, remote-control tool, or genera
 
 ## Download
 
-Go to [v0.1.0 Releases](https://github.com/moyla-dva/android-mac-notify/releases/tag/v0.1.0) and download:
+Go to [v0.1.1 Releases](https://github.com/moyla-dva/android-mac-notify/releases/tag/v0.1.1) and download:
 
-- Android: `android-mac-notify-android-v0.1.0.apk`
-- macOS: `Android-Mac-Notify-macOS-arm64-v0.1.0.dmg`
+- Android: `android-mac-notify-android-v0.1.1.apk`
+- macOS: `Android-Mac-Notify-macOS-arm64-v0.1.1.dmg`
 
 Current macOS package is Apple Silicon only and requires macOS 13 or later.
 

@@ -39,6 +39,8 @@ final class AppState: ObservableObject {
     let actionResultPersistenceController = AppActionResultPersistenceController()
     let diagnosticStateWriter = AppDiagnosticStateWriter()
     let connectionStateProjector = AppConnectionStateProjector()
+    var lastDiagnosticStateWriteAt: Date?
+    var pendingDiagnosticStateWriteTask: Task<Void, Never>?
     private let connectivityMonitor = AppConnectivityMonitor()
     private let pairingApprovalPresenter = AppPairingApprovalPresenter()
     private let statusCardPanelPresenter = AppStatusCardPanelPresenter()

@@ -1,16 +1,15 @@
 package com.vainve.androidmacnotify.ui.transfer
 
-import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
-import android.database.Cursor
 import android.net.Uri
-import android.provider.OpenableColumns
 import android.text.format.Formatter
 
 class SharedFileSelectionReader(
     private val context: Context,
 ) {
+    private val metadataReader = SharedFileMetadataReader(context)
+
     fun selectionsFrom(intent: Intent): List<SharedFileSelection> {
         val streamUris = when (intent.action) {
             Intent.ACTION_SEND -> intent.sharedStreamUri()?.let(::listOf).orEmpty()
@@ -31,13 +30,12 @@ class SharedFileSelectionReader(
     }
 
     private fun selectionFrom(uri: Uri): SharedFileSelection {
-        val resolver = context.contentResolver
-        val sizeBytes = resolver.fileSize(uri)
+        val metadata = metadataReader.metadataFor(uri)
         return SharedFileSelection(
             uri = uri,
-            fileName = resolver.displayName(uri).ifBlank { "shared-file" },
-            sizeLabel = sizeBytes?.let { Formatter.formatFileSize(context, it) },
-            sizeBytes = sizeBytes,
+            fileName = metadata.fileName,
+            sizeLabel = metadata.sizeBytes?.let { Formatter.formatFileSize(context, it) },
+            sizeBytes = metadata.sizeBytes,
         )
     }
 
@@ -78,32 +76,4 @@ private fun Intent.sharedStreamUris(): List<Uri> {
     }
 
     return (extraStreams + clipStreams).distinct()
-}
-
-private fun ContentResolver.displayName(uri: Uri): String {
-    return query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)
-        ?.useFirstString(OpenableColumns.DISPLAY_NAME)
-        .orEmpty()
-}
-
-private fun ContentResolver.fileSize(uri: Uri): Long? {
-    return query(uri, arrayOf(OpenableColumns.SIZE), null, null, null)
-        ?.useFirstLong(OpenableColumns.SIZE)
-}
-
-private fun Cursor.useFirstString(columnName: String): String? {
-    use { cursor ->
-        if (!cursor.moveToFirst()) return null
-        val columnIndex = cursor.getColumnIndex(columnName)
-        return if (columnIndex >= 0) cursor.getString(columnIndex) else null
-    }
-}
-
-private fun Cursor.useFirstLong(columnName: String): Long? {
-    use { cursor ->
-        if (!cursor.moveToFirst()) return null
-        val columnIndex = cursor.getColumnIndex(columnName)
-        if (columnIndex < 0 || cursor.isNull(columnIndex)) return null
-        return cursor.getLong(columnIndex)
-    }
 }
