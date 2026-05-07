@@ -209,7 +209,7 @@ Mac 端承担动作处理：
 
 暂不做复杂自动化规则平台。
 
-事件路由规格见 [Event Routing And Notification Interaction Spec](./EVENT-ROUTING-SPEC.md)。通知分发策略见 [Notification Dispatch Strategy](./NOTIFICATION-DISPATCH-STRATEGY.md)。当前原则是：硬规则保护底线，动态评分决定打扰强度，用户反馈负责个性化。
+当前通知路由策略见 [Notification Routing](./NOTIFICATION-ROUTING.md)。当前原则是：硬规则保护底线，动态评分决定打扰强度，用户反馈负责个性化。
 
 ## 6. Phase Plan
 
@@ -373,5 +373,7 @@ Phase 1 成功标准：
 - `ARCHITECTURE.md`: 定义系统边界、模块和数据流
 - `API-SPEC.md`: 定义 Android 与 Mac 的本地 API 契约
 - `PRODUCT-DIRECTION.md`: 定义产品主线、阶段路线和开发优先级
-- `PHASE-1-PLAN.md`: 定义第一阶段开发模型、实施顺序和验收标准
+- `NOTIFICATION-ROUTING.md`: 定义 Android 前置门禁、Mac 表面和通知动作路由
+- `FILE-DELIVERY-MVP.md`: 定义 Android 到 Mac 文件投递的当前范围和边界
 - `UI-INTERACTION-DIRECTION.md`: 定义 Mac 主窗口/菜单栏、Android 接力/文件/设备页以及可靠性入口的交互边界
+- `archive/`: 保留早期 Phase 1 计划、收口和旧通知路由文档

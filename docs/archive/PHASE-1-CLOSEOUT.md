@@ -8,7 +8,7 @@
 Android notification event -> Android relay gate -> Mac receiver -> action candidates -> menu bar / action inbox / history
 ```
 
-手动 QA 细则见 [Phase 1 QA Playbook](./PHASE-1-QA-PLAYBOOK.md)。
+手动 QA 细则见 [QA Playbook](../QA-PLAYBOOK.md)。
 
 已记录但不进入本轮收口：
 

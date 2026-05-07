@@ -412,6 +412,11 @@ android-mac-notify/
     MVP-SPEC.md
     ARCHITECTURE.md
     API-SPEC.md
+    NOTIFICATION-ROUTING.md
+    FILE-DELIVERY-MVP.md
+    UI-INTERACTION-DIRECTION.md
+    RELEASE.md
+    archive/
   android/
     app/
   mac/

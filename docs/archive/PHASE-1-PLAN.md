@@ -1,6 +1,6 @@
 # Phase 1 Plan: Reliable Notification Action MVP
 
-> Historical note: this plan records the earlier Phase 1 design path. The current implementation has shifted to Android relay gating, Mac menu bar actions, independent file delivery cards, and deferred status cards/user feedback rules by default. 当前事实以 `NOTIFICATION-DISPATCH-STRATEGY.md`、`FILE-DELIVERY-MVP.md`、`UI-INTERACTION-DIRECTION.md` 和 `PHASE-1-CLOSEOUT.md` 为准。
+> Historical note: this plan records the earlier Phase 1 design path. The current implementation has shifted to Android relay gating, Mac menu bar actions, independent file delivery cards, and deferred status cards/user feedback rules by default. 当前事实以 [Notification Routing](../NOTIFICATION-ROUTING.md)、[File Delivery MVP](../FILE-DELIVERY-MVP.md)、[UI Interaction Direction](../UI-INTERACTION-DIRECTION.md) 和 [Release Guide](../RELEASE.md) 为准。
 
 ## 1. Purpose
 
@@ -12,7 +12,7 @@ Android notification event -> Mac action candidates -> user completes action on 
 
 这一阶段不是要做完整协同平台，而是要把第一条垂直链路做稳，同时让架构能自然扩展到后续事件类型。
 
-下一步事件路由规格见 [Event Routing And Notification Interaction Spec](./EVENT-ROUTING-SPEC.md)。
+后续事件路由规格已收敛到 [Notification Routing](../NOTIFICATION-ROUTING.md)。旧版事件路由草案见 [Event Routing And Notification Interaction Spec](./EVENT-ROUTING-SPEC.md)。
 
 核心判断：
 

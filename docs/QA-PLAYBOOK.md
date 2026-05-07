@@ -1,4 +1,4 @@
-# Phase 1 QA Playbook
+# QA Playbook
 
 ## 1. Purpose
 
