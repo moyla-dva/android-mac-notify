@@ -34,22 +34,22 @@
 ## 本地运行
 
 ```bash
-cd /Users/vainve/android-mac-notify/mac/app
+cd mac/app
 swift run
 ```
 
 ## 构建可见 `.app`
 
 ```bash
-/Users/vainve/android-mac-notify/mac/scripts/build-app-bundle.sh
+./mac/scripts/build-app-bundle.sh
 ```
 
 输出位置：
 
-- `/Users/vainve/android-mac-notify/mac/dist/Android Mac Notify.app`
+- `mac/dist/Android Mac Notify.app`
 
 ## 打开可见 `.app`
 
 ```bash
-/Users/vainve/android-mac-notify/mac/scripts/open-app-bundle.sh
+./mac/scripts/open-app-bundle.sh
 ```

@@ -754,14 +754,14 @@ NotificationPayload
 Mac 端：
 
 ```bash
-cd /Users/vainve/android-mac-notify/mac/app
+cd mac/app
 swift build
 ```
 
 Android 端：
 
 ```bash
-cd /Users/vainve/android-mac-notify/android
+cd android
 ./gradlew :app:assembleDebug
 ./gradlew :app:testDebugUnitTest
 ```

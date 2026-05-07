@@ -15,33 +15,32 @@ Android 通知事件 -> Android 前置门禁 -> Mac 本地接收器 -> 动作识
 Mac app:
 
 ```bash
-/Users/vainve/android-mac-notify/mac/dist/Android Mac Notify.app
+mac/dist/Android Mac Notify.app
 ```
 
 Android debug package:
 
 ```bash
-/Users/vainve/android-mac-notify/android/app/build/outputs/apk/debug/app-debug.apk
+android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
 Mac 端重新构建：
 
 ```bash
-cd /Users/vainve/android-mac-notify
 ./mac/scripts/build-app-bundle.sh
 ```
 
 Mac 单元测试：
 
 ```bash
-cd /Users/vainve/android-mac-notify/mac/app
+cd mac/app
 swift test
 ```
 
 Android 构建与单元测试：
 
 ```bash
-cd /Users/vainve/android-mac-notify/android
+cd android
 ./gradlew :app:testDebugUnitTest
 ./gradlew :app:assembleDebug
 ```

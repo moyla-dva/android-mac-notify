@@ -14,7 +14,7 @@ Android 端负责把手机侧事件接力到已配对的 Mac。
 ## 本地构建
 
 ```bash
-cd /Users/vainve/android-mac-notify/android
+cd android
 ./gradlew :app:testDebugUnitTest
 ./gradlew :app:assembleDebug
 ```

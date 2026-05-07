@@ -22,7 +22,7 @@
 推荐本地流程：
 
 ```bash
-cd /Users/vainve/android-mac-notify/android
+cd android
 ./gradlew :app:testDebugUnitTest
 ./gradlew :app:assembleRelease
 ```
@@ -34,7 +34,6 @@ cd /Users/vainve/android-mac-notify/android
 当前 Mac 端可打包为 `.app`：
 
 ```bash
-cd /Users/vainve/android-mac-notify
 ./mac/scripts/build-app-bundle.sh
 ```
 
@@ -47,7 +46,6 @@ mac/dist/Android Mac Notify.app
 生成 DMG：
 
 ```bash
-cd /Users/vainve/android-mac-notify
 ./mac/scripts/package-dmg.sh
 ```
 

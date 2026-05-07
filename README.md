@@ -57,12 +57,12 @@ android-mac-notify/
 
 ## 文档入口
 
-- [/Users/vainve/android-mac-notify/docs/PRODUCT-DIRECTION.md](/Users/vainve/android-mac-notify/docs/PRODUCT-DIRECTION.md)
-- [/Users/vainve/android-mac-notify/docs/PHASE-1-PLAN.md](/Users/vainve/android-mac-notify/docs/PHASE-1-PLAN.md)
-- [/Users/vainve/android-mac-notify/docs/MVP-SPEC.md](/Users/vainve/android-mac-notify/docs/MVP-SPEC.md)
-- [/Users/vainve/android-mac-notify/docs/ARCHITECTURE.md](/Users/vainve/android-mac-notify/docs/ARCHITECTURE.md)
-- [/Users/vainve/android-mac-notify/docs/API-SPEC.md](/Users/vainve/android-mac-notify/docs/API-SPEC.md)
-- [/Users/vainve/android-mac-notify/docs/RELEASE.md](/Users/vainve/android-mac-notify/docs/RELEASE.md)
+- [PRODUCT-DIRECTION.md](docs/PRODUCT-DIRECTION.md)
+- [PHASE-1-PLAN.md](docs/PHASE-1-PLAN.md)
+- [MVP-SPEC.md](docs/MVP-SPEC.md)
+- [ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- [API-SPEC.md](docs/API-SPEC.md)
+- [RELEASE.md](docs/RELEASE.md)
 
 ## 发布安装包
 
@@ -70,7 +70,7 @@ android-mac-notify/
 
 - Android：不要上传 `app-debug.apk`；应使用 release 包并用自己的 release keystore 签名
 - Mac：上传打包后的 `.app` 压缩包；当前适合 early test，后续应补 Developer ID 签名和 notarization
-- 构建和签名说明见 [Release Guide](/Users/vainve/android-mac-notify/docs/RELEASE.md)
+- 构建和签名说明见 [Release Guide](docs/RELEASE.md)
 
 ## 后续方向
 

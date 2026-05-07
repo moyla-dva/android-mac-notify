@@ -49,9 +49,9 @@ Phase 1 之后已经启动的动作扩展：
 Mac:
 
 ```bash
-cd /Users/vainve/android-mac-notify/mac/app
+cd mac/app
 swift test
-cd /Users/vainve/android-mac-notify
+cd ../..
 ./mac/scripts/build-app-bundle.sh
 ```
 
@@ -60,7 +60,7 @@ cd /Users/vainve/android-mac-notify
 Android:
 
 ```bash
-cd /Users/vainve/android-mac-notify/android
+cd android
 ./gradlew :app:testDebugUnitTest
 ./gradlew :app:assembleDebug
 ```
