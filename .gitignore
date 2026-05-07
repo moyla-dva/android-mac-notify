@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+
+# Android
+android/.gradle/
+android/.kotlin/
+android/**/build/
+android/local.properties
+
+# Xcode / Swift
+mac/**/DerivedData/
+mac/**/*.xcworkspace/
+mac/**/*.xcodeproj/project.xcworkspace/
+mac/**/*.xcuserdata/
+mac/**/*.build/
+mac/**/.build/
+mac/dist/
+mac/**/.swiftpm/

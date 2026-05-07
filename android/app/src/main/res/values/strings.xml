@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android Mac Notify</string>
+    <string name="notification_listener_label">Android Mac Notify Notification Relay</string>
+</resources>
