@@ -44,9 +44,23 @@ cd /Users/vainve/android-mac-notify
 mac/dist/Android Mac Notify.app
 ```
 
+生成 DMG：
+
+```bash
+cd /Users/vainve/android-mac-notify
+./mac/scripts/package-dmg.sh
+```
+
+输出：
+
+```text
+mac/dist/Android-Mac-Notify-macOS-arm64-v0.1.0.dmg
+```
+
 公开分发建议：
 
-- 先压缩为 zip 后上传到 GitHub Releases
+- 优先上传 DMG，用户打开后把 App 拖到 Applications
+- zip 可保留作为备用下载
 - 后续补 Developer ID 签名和 notarization，减少 Gatekeeper 拦截
 - 未签名包只适合早期测试用户，Release 页面需要明确说明
 
