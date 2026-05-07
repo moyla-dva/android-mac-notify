@@ -1,54 +1,54 @@
 # Mac App
 
-这里放 Mac 端工程。
+The Mac app receives Android events over the local network and exposes them through the menu bar, main window, and file delivery cards.
 
-第一阶段职责：
+Current responsibilities:
 
-- 提供本地 HTTP 接收服务
-- 作为菜单栏应用常驻
-- 保存通知历史
-- 提取验证码和链接动作
-- 接收 Android 流式文件投递并生成文件动作
-- 接收 Android 接力开关状态，区分已连接、接力暂停和离线
-- 展示连接状态与基础诊断
+- Run a local HTTP receiver
+- Stay available as a menu bar app
+- Handle pairing requests from Android
+- Detect verification-code and link actions
+- Receive streamed file delivery from Android
+- Reflect Android and Mac relay pause state
+- Show connection status and basic diagnostics
 
-计划技术栈：
+Tech stack:
 
 - `Swift`
 - `SwiftUI`
 - `UserNotifications`
 - 应用内嵌轻量 HTTP 服务
 
-## 当前状态
+## Current State
 
-现在 `app/` 已经是可运行的 Swift Package，并且支持打成真正可见的 `.app`：
+`app/` is a runnable Swift Package and can be packaged as a visible `.app`:
 
-- 菜单栏入口
-- 本地 HTTP 接收器
-- 连接状态展示
-- 主窗口动作收件箱、最近记录和文件接收卡片
-- 接力暂停 / 恢复状态展示
-- 文件投递保存目录可在设置页修改，默认 `~/Downloads/Android Mac Notify`
-- 可见 app bundle 打包脚本
+- Menu bar entry
+- Local HTTP receiver
+- Connection status
+- Main window inbox, recent activity, and file delivery cards
+- Relay pause / resume status
+- Configurable file delivery directory, defaulting to `~/Downloads/Android Mac Notify`
+- App bundle and DMG packaging scripts
 
-## 本地运行
+## Local Run
 
 ```bash
 cd mac/app
 swift run
 ```
 
-## 构建可见 `.app`
+## Build App Bundle
 
 ```bash
 ./mac/scripts/build-app-bundle.sh
 ```
 
-输出位置：
+Output:
 
 - `mac/dist/Android Mac Notify.app`
 
-## 打开可见 `.app`
+## Open App Bundle
 
 ```bash
 ./mac/scripts/open-app-bundle.sh

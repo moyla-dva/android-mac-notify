@@ -1,17 +1,17 @@
 # Android App
 
-Android 端负责把手机侧事件接力到已配对的 Mac。
+The Android app reads selected phone-side events and relays them to a paired Mac on the same local network.
 
-当前职责：
+Current responsibilities:
 
-- 通过通知访问服务读取 Android 通知
-- 在 Android 端前置判断是否需要接力
-- 将验证码、链接等确定性事件发送到 Mac
-- 通过系统分享或应用内选择文件，把单文件、多文件和大文件流式投递到 Mac
-- 自动发现附近 Mac，支持手动连接兜底
-- 展示接力、文件投递、设备管理和可靠性状态
+- Read Android notifications through Notification Listener access
+- Decide whether a notification should be relayed before sending it
+- Relay verification codes, links, and other supported events to Mac
+- Send single files, multiple files, and large files to Mac
+- Discover nearby Macs automatically, with manual connection as fallback
+- Show relay, file delivery, device, and reliability status
 
-## 本地构建
+## Local Build
 
 ```bash
 cd android
@@ -19,14 +19,14 @@ cd android
 ./gradlew :app:assembleDebug
 ```
 
-Debug APK 只用于本机开发和真机调试，不建议公开分发。
+Debug APKs are for local development and device testing only. Do not distribute debug APKs publicly.
 
-## 发布构建
+## Release Build
 
-公开分发时应使用 release 包，并使用自己的 release keystore 签名。
+Public APKs should use the release build type and a release keystore.
 
-当前仓库不提交签名证书、keystore 或密码。发布前请在本地生成签名材料，并确保这些文件不进入 git。
+This repository does not commit signing certificates, keystores, or passwords. Generate signing material locally and keep it out of git.
 
-参考发布说明：
+See:
 
 - [Release Guide](../docs/RELEASE.md)
